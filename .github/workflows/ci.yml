@@ -116,7 +116,7 @@ jobs:
 
   # ============================================================================
   # VERCEL DEPLOYMENT - DISABLED
-  # Vercel has automatic deployment on push to main
+  # Vercel builds only daily-promoted live; main and PR branches do not deploy
   # Manual deployment via GitHub Actions repeatedly broke production
   # All deployments now handled by Vercel's native Git integration
   # ============================================================================

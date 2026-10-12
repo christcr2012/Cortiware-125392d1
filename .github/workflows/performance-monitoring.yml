@@ -1,8 +1,6 @@
 name: Performance Monitoring
 
 on:
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
     inputs:
       compare_against:
@@ -78,7 +76,6 @@ jobs:
           github-token: ${{ secrets.USER_GH_TOKEN != '' && secrets.USER_GH_TOKEN || secrets.CHRIS_GH_PAT != '' && secrets.CHRIS_GH_PAT || secrets.GH_PAT != '' && secrets.GH_PAT || secrets.BOT_HELPER_TOKEN != '' && secrets.BOT_HELPER_TOKEN || github.token }}
           script: |
             const fs = require('fs');
-            const core = require('@actions/core');
 
             let out = '## 📊 Performance Comparison\n\n';
             try {

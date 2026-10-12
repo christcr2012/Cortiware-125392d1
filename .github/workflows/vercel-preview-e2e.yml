@@ -1,92 +1,41 @@
-name: Vercel Preview E2E
-
+name: Manual browser checks
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
-    # Only run when app code that can trigger Vercel deployments changes
-    paths:
-      - "apps/**"
-      - "packages/**"
-      - "turbo.json"
-      - "package.json"
-      - "tsconfig*.json"
-      - "vercel.json"
   workflow_dispatch:
     inputs:
-      force:
-        description: "Force run even if path filters would skip"
-        required: false
-        default: "false"
-
+      tenant_url:
+        description: Explicit test environment URL for the tenant app
+        required: true
+        type: string
+      provider_url:
+        description: Explicit test environment URL for the provider portal
+        required: true
+        type: string
+permissions:
+  contents: read
 jobs:
-  wait-for-preview:
-    name: Wait for Vercel Preview & Run E2E
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    # Allow manual override via workflow_dispatch input
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' }}
+  browser-checks:
+    name: Manual browser checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Wait for Vercel Preview Deployment
-        uses: patrickedqvist/wait-for-vercel-preview@v1.3.2
-        id: wait-for-preview
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          max_timeout: 600
-          check_interval: 10
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: 22
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci --no-audit --no-fund
-
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps chromium
-
-      - name: Run Playwright Smoke Tests
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - name: Run existing browser suite
         env:
-          TENANT_APP_URL: ${{ steps.wait-for-preview.outputs.url }}
-          PROVIDER_PORTAL_URL: ${{ steps.wait-for-preview.outputs.url }}
-          CI: "true"
-          # Use test credentials for smoke tests
-          TEST_OWNER_EMAIL: "owner@test.com"
-          TEST_OWNER_PASSWORD: "password123"
-          TEST_PROVIDER_EMAIL: "provider@test.com"
-          TEST_PROVIDER_PASSWORD: "password123"
+          TENANT_APP_URL: ${{ inputs.tenant_url }}
+          PROVIDER_PORTAL_URL: ${{ inputs.provider_url }}
+          CI: 'true'
         run: npm run test:e2e:playwright
-        continue-on-error: true
-
-      - name: Upload Playwright Report
-        uses: actions/upload-artifact@v4
-        if: always()
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: failure()
         with:
-          name: playwright-report-preview
+          name: manual-browser-report
           path: playwright-report/
-          retention-days: 7
-
-      - name: Comment PR with Preview URL
-        uses: actions/github-script@v7
-        if: always()
-        with:
-          script: |
-            const previewUrl = '${{ steps.wait-for-preview.outputs.url }}';
-            const comment = `## 🚀 Vercel Preview Deployment
-
-            **Preview URL:** ${previewUrl}
-
-            ✅ E2E smoke tests completed against this preview.
-
-            Check the [Playwright Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) for detailed test results.`;
-
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: comment
-            });
+          retention-days: 3

@@ -4,9 +4,8 @@ on:
   workflow_dispatch:
     inputs:
       base_url:
-        description: "Base URL of a running environment (e.g., Vercel preview)"
+        description: "Explicit URL of a test environment; no automatic Vercel preview is created"
         required: true
-        default: "https://your-preview-url.vercel.app"
       fed_enabled:
         description: "Expect federation enabled? (true/false)"
         required: true

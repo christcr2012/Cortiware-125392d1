@@ -21,12 +21,12 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all history for all branches
 
-      - name: Run Gitleaks
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          config-path: .gitleaks.toml
+      - name: Run free open-source Gitleaks CLI
+        run: >-
+          docker run --rm -v "$PWD:/repo"
+          ghcr.io/gitleaks/gitleaks:v8.24.3 detect
+          --source=/repo --config=/repo/.gitleaks.toml
+          --redact --report-format=json --report-path=/repo/gitleaks-report.json
 
       - name: Upload Gitleaks Report
         if: failure()

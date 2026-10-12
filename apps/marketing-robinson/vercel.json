@@ -12,11 +12,16 @@
       "permanent": true
     }
   ],
-
   "rewrites": [
     {
       "source": "/portal/:path*",
       "destination": "https://provider-portal.vercel.app/:path*"
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "**": false,
+      "live": true
+    }
+  }
 }
