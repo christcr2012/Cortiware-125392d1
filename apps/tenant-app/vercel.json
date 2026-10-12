@@ -3,5 +3,11 @@
   "outputDirectory": ".next",
   "framework": "nextjs",
   "installCommand": "cd ../.. && npm install",
-  "ignoreCommand": "npx turbo-ignore tenant-app"
+  "ignoreCommand": "npx turbo-ignore tenant-app",
+  "git": {
+    "deploymentEnabled": {
+      "**": false,
+      "live": true
+    }
+  }
 }

@@ -58,10 +58,8 @@ jobs:
           SYNC_ISSUES: "true"
         continue-on-error: true
 
-      # NOTE: We do NOT run builds in CI/CD anymore
-      # Local builds are fundamentally different from Vercel builds
-      # Testing builds locally repeatedly broke production deployments
-      # All build verification happens on Vercel deployment
+      # Builds and browser tests run on isolated GitHub runners in local-e2e.yml.
+
       - name: Build Verification (Skipped - Vercel Only)
         run: |
           echo "⏭️  Build step skipped - builds only run on Vercel"
@@ -116,7 +114,7 @@ jobs:
 
   # ============================================================================
   # VERCEL DEPLOYMENT - DISABLED
-  # Vercel has automatic deployment on push to main
+  # Vercel builds only daily-promoted live; development PRs use local builds
   # Manual deployment via GitHub Actions repeatedly broke production
   # All deployments now handled by Vercel's native Git integration
   # ============================================================================

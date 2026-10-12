@@ -9,5 +9,11 @@
       "path": "/api/cron/collect-metrics",
       "schedule": "*/15 * * * *"
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "**": false,
+      "live": true
+    }
+  }
 }

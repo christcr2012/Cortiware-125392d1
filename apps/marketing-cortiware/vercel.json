@@ -10,5 +10,11 @@
       "source": "/app/:path*",
       "destination": "https://tenant-app.vercel.app/:path*"
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "**": false,
+      "live": true
+    }
+  }
 }

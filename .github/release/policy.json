@@ -1,0 +1,8 @@
+{
+  "repository": "christcr2012/Cortiware-125392d1",
+  "requiredChecks": [
+    "release-policy",
+    "Quality Checks (TypeScript, Lint, Tests, Build)",
+    "API Contract Validation"
+  ]
+}

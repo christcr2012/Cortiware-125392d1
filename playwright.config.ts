@@ -95,19 +95,21 @@ export default defineConfig({
   ],
 
   // Web server configuration for local development
-  webServer: process.env.CI ? undefined : [
+  webServer: process.env.E2E_LOCAL === 'true' || !process.env.CI ? [
     {
-      command: 'cd apps/tenant-app && npm run dev',
-      url: 'http://localhost:3000',
+      command: process.env.E2E_LOCAL === 'true' ? 'npm run start --workspace=tenant-app -- -p 3000' : 'npm run dev --workspace=tenant-app',
+      url: process.env.E2E_LOCAL === 'true' ? 'http://127.0.0.1:3000' : 'http://localhost:3003',
+      env: { DATABASE_URL: process.env.DATABASE_URL!, DIRECT_DATABASE_URL: process.env.DIRECT_DATABASE_URL! },
       reuseExistingServer: !process.env.CI,
       timeout: 120 * 1000,
     },
     {
-      command: 'cd apps/provider-portal && npm run dev',
-      url: 'http://localhost:3001',
+      command: process.env.E2E_LOCAL === 'true' ? 'npm run start --workspace=provider-portal -- -p 3001' : 'npm run dev --workspace=provider-portal',
+      url: process.env.E2E_LOCAL === 'true' ? 'http://127.0.0.1:3001' : 'http://localhost:3000',
+      env: { DATABASE_URL: process.env.PROVIDER_DATABASE_URL || process.env.DATABASE_URL!, DIRECT_DATABASE_URL: process.env.PROVIDER_DATABASE_URL || process.env.DIRECT_DATABASE_URL! },
       reuseExistingServer: !process.env.CI,
       timeout: 120 * 1000,
     },
-  ],
+  ] : undefined,
 });
 
