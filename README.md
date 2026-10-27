@@ -1,3 +1,13 @@
+> ## ⚠️ STOP — READ THE AUDIT BEFORE DOING ANY WORK IN THIS REPO
+>
+> An independent audit of this codebase was completed on 2026-10-26:
+> **[AUDIT-2026-10-26.md](./AUDIT-2026-10-26.md)**. It found that much of this repo's
+> documentation does not match the code, that the repo contains three overlapping
+> application codebases, and that several headline features are scaffolds. Agents and
+> contributors must read the audit first, and follow the standing rules in
+> [AGENTS.md](./AGENTS.md). The README below is historical and is **not** a reliable
+> description of the current state of the code.
+
 # Cortiware
 
 **Cortiware** is an AI-powered multi-tenant platform for service businesses, featuring industry-specific AI agents, automation tools, and vertical-specific feature packs. Built by Robinson AI Systems.
