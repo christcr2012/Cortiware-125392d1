@@ -11,7 +11,7 @@ export async function run() {
   };
 
   try {
-    const { verifyFederation } = await import('../../src/lib/providerFederationVerify');
+    const { verifyFederation } = await import('../../apps/provider-portal/src/lib/providerFederationVerify');
 
     // Default: disabled
     delete process.env.FED_ENABLED;

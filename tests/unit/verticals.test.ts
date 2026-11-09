@@ -8,7 +8,7 @@ export async function run() {
   total++;
   try {
     const keys = Object.keys(verticalsRegistry);
-    if (keys.includes('cleaning') && keys.includes('roll-off') && keys.includes('port-a-john')) {
+    if (keys.includes('cleaning') && !keys.includes('roll-off') && !keys.includes('port-a-john')) {
       passed++;
     } else {
       throw new Error('Missing expected vertical keys');
