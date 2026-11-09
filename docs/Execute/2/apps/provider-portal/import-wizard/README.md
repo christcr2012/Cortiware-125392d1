@@ -1,1 +1,0 @@
-Mount `<ImportWizard/>` in your Provider Portal navigation as 'Imports'. No server route required; it generates `*.import.json` files for the existing CLI/seed jobs.

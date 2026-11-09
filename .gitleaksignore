@@ -1,0 +1,37 @@
+# Rotated-history fingerprints: the 32 findings of the 2026-11-08 census
+# (cortiware census-2026-11-08.md s.4). Every credential behind these
+# fingerprints was rotated, deleted with its store, or obsoleted by
+# retirement in the rack-pair build's rotation wave; the carrier files
+# left the tree in the salvage strip (PR-2). History itself is unchanged.
+1d4cb4a1b4f8a80906f3e6184a7206ee50b73536:docs/MICRO_WORKER_IMPLEMENTATION.md:generic-api-key:231
+456964de19f59a2b8ee343ad51f3b438af746eed:docs/security/SECURITY_IMPROVEMENTS_SUMMARY.md:aws-access-key:52
+5085a1bcf796a52018828b77e607455dbff973c2:scripts/set-env-vars.bat:cortiware-bcrypt-hash:25
+5085a1bcf796a52018828b77e607455dbff973c2:scripts/set-env-vars.bat:cortiware-bcrypt-hash:26
+5085a1bcf796a52018828b77e607455dbff973c2:scripts/set-env-vars.bat:cortiware-bcrypt-hash:27
+5085a1bcf796a52018828b77e607455dbff973c2:scripts/set-env-vars.bat:cortiware-bcrypt-hash:30
+5085a1bcf796a52018828b77e607455dbff973c2:scripts/set-env-vars.bat:cortiware-bcrypt-hash:31
+5085a1bcf796a52018828b77e607455dbff973c2:scripts/set-env-vars.bat:cortiware-bcrypt-hash:32
+528a7a2f7fff223b14be490360dac4aec43fe884:scripts/set-vercel-env.ps1:cortiware-bcrypt-hash:14
+528a7a2f7fff223b14be490360dac4aec43fe884:scripts/set-vercel-env.ps1:cortiware-bcrypt-hash:15
+528a7a2f7fff223b14be490360dac4aec43fe884:scripts/set-vercel-env.ps1:generic-api-key:12
+528a7a2f7fff223b14be490360dac4aec43fe884:scripts/set-vercel-env.ps1:generic-api-key:13
+528a7a2f7fff223b14be490360dac4aec43fe884:scripts/set-vercel-env.sh:cortiware-auth-ticket-hmac:14
+528a7a2f7fff223b14be490360dac4aec43fe884:scripts/set-vercel-env.sh:cortiware-bcrypt-hash:16
+528a7a2f7fff223b14be490360dac4aec43fe884:scripts/set-vercel-env.sh:cortiware-bcrypt-hash:17
+528a7a2f7fff223b14be490360dac4aec43fe884:scripts/set-vercel-env.sh:cortiware-cookie-secret:15
+6fec954d5cc52282359fd9a0b610f1b2ca8ba2fc:docs/api/v2/contracts/leads.md:generic-api-key:89
+76cd646f997fbdbf48a72b5df108e969bf1744b2:docs/MCP_ENV_VARS.md:vercel-kv-url:17
+7d22a7079eff0c21d509e55a54d5178282af4504:ops/DEPLOYMENT_SETUP_GUIDE.md:vercel-kv-url:90
+83b0af1a83b0789ece26ce65d1f8dc5d08da1e99:ops/reports/PHASE1_COMPLETE_SUMMARY.md:cortiware-bcrypt-hash:326
+83b0af1a83b0789ece26ce65d1f8dc5d08da1e99:ops/reports/PHASE1_COMPLETE_SUMMARY.md:cortiware-bcrypt-hash:327
+9895d9601cd81cba9798ef0c02af118743aba4e7:ops/reports/FINAL_EXEC_SUMMARY.md:cortiware-bcrypt-hash:281
+9895d9601cd81cba9798ef0c02af118743aba4e7:ops/reports/FINAL_EXEC_SUMMARY.md:cortiware-bcrypt-hash:282
+a9d31f3659daabb2da8d1d12931a7fac44e67e33:docs/ENVIRONMENT_VARIABLES.md:vercel-kv-url:60
+af39b6440c715d547f7578e6fb1215d16fde6e66:docs/GO_LIVE_CLIENT_ONBOARDING_CHECKLIST.md:generic-api-key:14
+b4ab10ec16f2113eeb8b7c2d7d9a30c0e28ed285:PRODUCTION_READINESS.md:vercel-kv-url:151
+b4ab10ec16f2113eeb8b7c2d7d9a30c0e28ed285:PRODUCTION_READINESS.md:vercel-kv-url:34
+b4ab10ec16f2113eeb8b7c2d7d9a30c0e28ed285:docs/federation/hosting-and-environments.md:vercel-kv-url:123
+c9c3e41a76ac57e5577e40c7550607bb89cc4a8a:ops/vercel/VERCEL_DEPLOYMENT_GUIDE.md:vercel-kv-url:145
+ceff78adc05f9d746e744465ccd643a9489a9646:docs/PHASE_2_IMPLEMENTATION.md:generic-api-key:122
+ceff78adc05f9d746e744465ccd643a9489a9646:docs/PHASE_2_IMPLEMENTATION.md:generic-api-key:129
+ceff78adc05f9d746e744465ccd643a9489a9646:docs/PHASE_2_IMPLEMENTATION.md:generic-api-key:130

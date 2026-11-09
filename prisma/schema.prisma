@@ -1,6 +1,6 @@
 generator client {
   provider      = "prisma-client-js"
-  output        = "../node_modules/@prisma/client-tenant"
+  output        = "../packages/prisma-client-tenant/src"
   binaryTargets = ["native", "rhel-openssl-3.0.x"]
   // Updated to Prisma 6.18.0 - 2025-01-28
 }
@@ -496,6 +496,7 @@ model Customer {
   @@index([orgId, company])
   @@index([orgId, createdAt])
   @@index([orgId, primaryName])
+  metadata Json?
 }
 
 model CustomerContact {
@@ -844,6 +845,7 @@ model Lead {
   @@index([orgId, identityHash])
   @@index([orgId, sourceType])
   @@index([orgId, status])
+  metadata Json?
 }
 
 model LeadInvoice {

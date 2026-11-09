@@ -3,7 +3,7 @@
  * Tests token bucket algorithm, per-org limits, and 429 responses
  */
 
-import { describe, it, expect, beforeEach } from '@jest/globals';
+import { describe, it, expect, beforeEach } from 'vitest';
 
 // Mock rate limiter implementation for testing
 class MockRateLimiter {

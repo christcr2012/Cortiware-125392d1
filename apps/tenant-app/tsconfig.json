@@ -9,6 +9,12 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@prisma/client-tenant": [
+        "../../packages/prisma-client-tenant/src"
+      ],
+      "@prisma/client-provider": [
+        "../../packages/prisma-client-provider/src"
       ]
     },
     "allowJs": true,

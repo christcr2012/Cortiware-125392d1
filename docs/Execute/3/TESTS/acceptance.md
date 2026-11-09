@@ -1,4 +1,0 @@
-- Admin: import CSV → leads render; schedule page loads; invoice stub creates
-- Staff: geofence clock-in guard
-- Portal: request service form present
-- API: 402 payload on AI guard; rate limit returns 429 after threshold
