@@ -258,11 +258,18 @@ export async function importOpportunityAsLead(
   const zip = opportunity.placeOfPerformance?.zip || opportunity.officeAddress?.zipcode || null;
 
   // Create lead
+  const company = opportunity.department || opportunity.subTier || 'Federal Agency';
+  // Tenant Lead requires identityHash for deduplication - same convention as
+  // the leads API (email|phone|company, lowercased, '|'-joined).
+  const identityHash = [email?.toLowerCase(), phone, company?.toLowerCase()]
+    .filter(Boolean)
+    .join('|');
   const lead = await prisma.lead.create({
     data: {
       orgId,
       publicId: `RFP_${opportunity.noticeId}`,
-      company: opportunity.department || opportunity.subTier || 'Federal Agency',
+      identityHash,
+      company,
       contactName,
       email,
       phoneE164: phone,
