@@ -22,7 +22,14 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "src/*"
+        "apps/tenant-app/src/*",
+        "apps/provider-portal/src/*"
+      ],
+      "@prisma/client-tenant": [
+        "packages/prisma-client-tenant/src"
+      ],
+      "@prisma/client-provider": [
+        "packages/prisma-client-provider/src"
       ]
     },
     "types": [

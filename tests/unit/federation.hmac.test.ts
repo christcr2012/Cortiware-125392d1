@@ -3,7 +3,7 @@
  * Tests signature generation, verification, timestamp validation, and error cases
  */
 
-import { describe, it, expect } from '@jest/globals';
+import { describe, it, expect } from 'vitest';
 import { generateSignature, verifySignature } from '../../apps/provider-portal/src/lib/federation/hmac';
 
 describe('Federation HMAC Signature', () => {

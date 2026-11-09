@@ -3,7 +3,7 @@
  * Tests idempotency key handling, replay detection, and response caching
  */
 
-import { describe, it, expect, beforeEach } from '@jest/globals';
+import { describe, it, expect, beforeEach } from 'vitest';
 
 // Mock idempotency store for testing
 class MockIdempotencyStore {

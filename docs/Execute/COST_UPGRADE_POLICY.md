@@ -1,1 +1,0 @@
-# Cost Baseline & Upgrade Policy — baseline ≤ $100/mo, incremental upgrade triggers with ROI checks
