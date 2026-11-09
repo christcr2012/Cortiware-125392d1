@@ -1,5 +1,3 @@
-import { run as runLeads } from './validation.leads.test';
-import { run as runOpps } from './validation.opportunities.test';
 import { run as runFedCfg } from './federation.config.test';
 import { run as runAuthHelpers } from './middleware.auth.test';
 import { run as runFedServices } from './federation.services.test';
@@ -7,7 +5,6 @@ import { run as runOwnerAuth } from './owner.auth.test';
 import { run as runOnboardToken } from './onboarding.token.test';
 
 import { run as runRouting } from './routing.test';
-import { run as runAgreementsRolloff } from './agreements_rolloff.test';
 import { run as runImporters } from './importers.test';
 import { run as runAgreementsEval } from './agreements_eval.test';
 import { run as runWallet } from './wallet.test';
@@ -18,19 +15,26 @@ import { run as runStripeWebhookVerify } from './stripe.webhook.verify.test';
 import { run as runFedFlagsCompat } from './federation.flags.compat.test';
 
 
+// NAMED-CASUALTY RETIREMENTS (2026-11-09, stack repair):
+// - validation.leads / validation.opportunities: their subject modules
+//   (root src/lib/validation/leads.ts / opportunities.ts, the legacy root
+//   app's Prisma-aligned validators) were discarded in the PR-2 discard
+//   wave. The kept provider-portal lib/validation stubs carry different
+//   placeholder semantics and no kept caller uses the tested functions,
+//   so the suites tested discarded code only.
+// - agreements_rolloff: its subject (the rolloff vertical pack) was
+//   discarded in the same wave.
+// Suite files remain on disk for reference; they are out of the runner.
 process.env.UNIT_TESTS = '1';
 
 async function main() {
   const results = [
-    await runLeads(),
-    await runOpps(),
     await runFedCfg(),
     await runAuthHelpers(),
     await runFedServices(),
     await runOwnerAuth(),
     await runOnboardToken(),
     await runRouting(),
-    await runAgreementsRolloff(),
     await runImporters(),
     await runAgreementsEval(),
     await runWallet(),

@@ -1,4 +1,4 @@
-import { isFederationEnabled, extractProviderToken, extractDeveloperToken } from '@/lib/api/middleware';
+import { isFederationEnabled, extractProviderToken, extractDeveloperToken } from '../../apps/provider-portal/src/lib/api/middleware';
 
 export async function run() {
   const name = 'middleware.auth.helpers';
