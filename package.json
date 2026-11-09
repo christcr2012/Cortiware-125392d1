@@ -12,7 +12,7 @@
     "node": "22.x"
   },
   "scripts": {
-    "postinstall": "prisma generate --schema=prisma/schema.prisma && cd apps/provider-portal && prisma generate",
+    "postinstall": "prisma generate --schema=prisma/schema.prisma && prisma generate --schema=apps/provider-portal/prisma/schema.prisma",
     "phase:0": "tsx scripts/operating/phase0_schema_audit.ts",
     "phase:0:docs": "tsx scripts/operating/phase0_docs_audit.ts",
     "phase:0:all": "npm run phase:0 && npm run phase:0:docs && npm run trace:update",
@@ -28,7 +28,7 @@
     "seed": "tsx prisma/seed.ts",
     "seed:provider": "cd apps/provider-portal && npm run prisma:seed",
     "db:seed:preview": "tsx prisma/seed-preview.ts",
-    "prisma:generate": "npx prisma generate --schema=prisma/schema.prisma && cd apps/provider-portal && npx prisma generate",
+    "prisma:generate": "prisma generate --schema=prisma/schema.prisma && prisma generate --schema=apps/provider-portal/prisma/schema.prisma",
     "prisma:studio:tenant": "npx prisma studio --schema=prisma/schema.prisma",
     "prisma:studio:provider": "cd apps/provider-portal && npx prisma studio",
     "prisma:migrate:tenant": "npx prisma migrate dev --schema=prisma/schema.prisma",
