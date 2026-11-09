@@ -3,7 +3,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@prisma/client-provider": [
+        "../../packages/prisma-client-provider/src"
+      ]
     },
     "typeRoots": [
       "../../node_modules/@types",
@@ -28,4 +33,3 @@
     "node_modules"
   ]
 }
-

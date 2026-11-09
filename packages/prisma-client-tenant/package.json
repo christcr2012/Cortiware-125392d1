@@ -4,5 +4,11 @@
   "private": true,
   "description": "Generated Prisma client (tenant schema) - generated into src/ by prisma generate; do not edit src/ by hand.",
   "main": "./src/index.js",
-  "types": "./src/index.d.ts"
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    }
+  }
 }
