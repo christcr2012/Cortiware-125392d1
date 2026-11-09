@@ -1,6 +1,0 @@
-- cleaning
-- appliance-rental
-- concrete-leveling
-- fencing
-- roll-off
-- port-a-john
