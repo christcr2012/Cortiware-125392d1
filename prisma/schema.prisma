@@ -496,6 +496,7 @@ model Customer {
   @@index([orgId, company])
   @@index([orgId, createdAt])
   @@index([orgId, primaryName])
+  metadata Json?
 }
 
 model CustomerContact {
@@ -844,6 +845,7 @@ model Lead {
   @@index([orgId, identityHash])
   @@index([orgId, sourceType])
   @@index([orgId, status])
+  metadata Json?
 }
 
 model LeadInvoice {
