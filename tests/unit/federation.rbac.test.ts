@@ -3,7 +3,7 @@
  * Tests role-based access control, permission checks, and production write restrictions
  */
 
-import { describe, it, expect } from '@jest/globals';
+import { describe, it, expect } from 'vitest';
 import { hasPermission, FEDERATION_PERMS } from '../../apps/provider-portal/src/lib/federation/rbac-middleware';
 
 describe('Federation RBAC', () => {

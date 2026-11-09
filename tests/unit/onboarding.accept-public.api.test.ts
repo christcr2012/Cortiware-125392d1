@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/prisma';
-import { POST } from '@/app/api/onboarding/accept-public/route';
+import { POST } from '@/app/api/onboarding/accept/route';
 
 export async function run() {
   const name = 'onboarding.accept-public.api';

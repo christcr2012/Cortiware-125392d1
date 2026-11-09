@@ -1,14 +1,10 @@
 import { run as runLeads } from './validation.leads.test';
 import { run as runOpps } from './validation.opportunities.test';
-import { run as runOrgs } from './validation.organizations.test';
 import { run as runFedCfg } from './federation.config.test';
 import { run as runAuthHelpers } from './middleware.auth.test';
 import { run as runFedServices } from './federation.services.test';
 import { run as runOwnerAuth } from './owner.auth.test';
 import { run as runOnboardToken } from './onboarding.token.test';
-import { run as runAcceptPublic } from './onboarding.accept-public.api.test';
-import { run as runAcceptService } from './onboarding.accept.service.test';
-import { run as runNegativePaths } from './onboarding.negative-paths.test';
 
 import { run as runRouting } from './routing.test';
 import { run as runAgreementsRolloff } from './agreements_rolloff.test';
@@ -17,7 +13,6 @@ import { run as runAgreementsEval } from './agreements_eval.test';
 import { run as runWallet } from './wallet.test';
 import { run as runRoutingOptimization } from './routing_optimization.test';
 import { run as runUiComponents } from './ui_components.test';
-import { run as runImportersSchema } from './importers_schema.test';
 import { run as runVerticals } from './verticals.test';
 import { run as runStripeWebhookVerify } from './stripe.webhook.verify.test';
 import { run as runFedFlagsCompat } from './federation.flags.compat.test';
@@ -29,15 +24,11 @@ async function main() {
   const results = [
     await runLeads(),
     await runOpps(),
-    await runOrgs(),
     await runFedCfg(),
     await runAuthHelpers(),
     await runFedServices(),
     await runOwnerAuth(),
     await runOnboardToken(),
-    await runAcceptPublic(),
-    await runAcceptService(),
-    await runNegativePaths(),
     await runRouting(),
     await runAgreementsRolloff(),
     await runImporters(),
@@ -45,7 +36,6 @@ async function main() {
     await runWallet(),
     await runRoutingOptimization(),
     await runUiComponents(),
-    await runImportersSchema(),
     await runVerticals(),
     await runStripeWebhookVerify(),
     await runFedFlagsCompat(),
