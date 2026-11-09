@@ -492,6 +492,7 @@ model Customer {
   Communication       Communication[] // Phase 1: Type 2 communications
   CommunicationThread CommunicationThread[] // Phase 1: Message threading
   RecurringService    RecurringService[] // Phase 2: Recurring services
+  metadata            Json?
 
   @@index([orgId, company])
   @@index([orgId, createdAt])
@@ -837,6 +838,7 @@ model Lead {
   customFields          Json              @default("{}")
   Org                   Org               @relation(fields: [orgId], references: [id])
   LeadInvoiceLine       LeadInvoiceLine[]
+  metadata              Json?
 
   @@index([convertedToCustomerId])
   @@index([orgId, convertedAt])

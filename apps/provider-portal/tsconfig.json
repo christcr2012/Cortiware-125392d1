@@ -8,6 +8,9 @@
       ],
       "@prisma/client-provider": [
         "../../packages/prisma-client-provider/src"
+      ],
+      "@prisma/client-tenant": [
+        "../../packages/prisma-client-tenant/src"
       ]
     },
     "typeRoots": [

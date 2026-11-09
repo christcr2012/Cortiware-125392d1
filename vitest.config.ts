@@ -8,7 +8,13 @@ export default defineConfig({
     include: [
       "packages/*/src/**/*.{test,spec}.?(c|m)[jt]s?(x)",
       "apps/*/src/**/*.{test,spec}.?(c|m)[jt]s?(x)",
-      "tests/unit/**/*.{test,spec}.?(c|m)[jt]s?(x)", // Phase 1.6: Unit tests per COPILOT_OPERATING_PROCEDURE.md
+      // Unit suites are split by runner: the describe-style federation suites run
+      // under Vitest; the run()-style suites in tests/unit run under the custom
+      // runner (npm run test:unit, tests/unit/run.ts). Scopes are disjoint by design.
+      "tests/unit/federation.hmac.test.ts",
+      "tests/unit/federation.idempotency.test.ts",
+      "tests/unit/federation.ratelimit.test.ts",
+      "tests/unit/federation.rbac.test.ts",
     ],
     exclude: [
       "node_modules/**",
@@ -37,9 +43,12 @@ export default defineConfig({
     hookTimeout: 15000,
   },
   resolve: {
-    alias: {
-      "@tenant": resolve(__dirname, "./apps/tenant-app/src"),
-      "@provider": resolve(__dirname, "./apps/provider-portal/src"),
-    },
+    alias: [
+      // Provider-portal sources use the "@/..." alias internally (their tsconfig
+      // maps it to provider src); the Vitest scope is provider/federation suites.
+      { find: /^@\/(.*)$/, replacement: resolve(__dirname, "./apps/provider-portal/src") + "/$1" },
+      { find: "@tenant", replacement: resolve(__dirname, "./apps/tenant-app/src") },
+      { find: "@provider", replacement: resolve(__dirname, "./apps/provider-portal/src") },
+    ],
   },
 });

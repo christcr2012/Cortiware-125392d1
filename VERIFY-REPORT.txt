@@ -1,0 +1,27 @@
+HEAD: 394098b73cd535b66c3b0e1583ba5f26904e5e08
+== prisma generate ==
+Tip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate
+
+Tip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate
+
+== tenant tsc ==
+rc=2
+tenant errors: 2
+src/services/sam-gov.service.ts(262,5): error TS2322: Type '{ orgId: string; publicId: string; company: string; contactName: string | null; email: string | null; phoneE164: string | null; status: "NEW"; sourceType: "RFP"; sourceDetail: string; systemGenerated: false; ... 4 more ...; metadata: { ...; }; }' is not assignable to type 'Exact<(Without<LeadCreateInput, LeadUncheckedCreateInput> & LeadUncheckedCreateInput) | (Without<...> & LeadCreateInput), (Without<...> & LeadUncheckedCreateInput) | (Without<...> & LeadCreateInput)>'.
+../../packages/db/src/index.ts(14,29): error TS2307: Cannot find module '@prisma/client-provider' or its corresponding type declarations.
+== provider tsc ==
+rc=0
+provider errors: 0
+== worker tsc ==
+rc=0
+worker errors: 0
+== vitest federation ==
+rc=1
+[2m Test Files [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m3 passed[39m[22m[90m (4)[39m
+[2m      Tests [22m [1m[32m58 passed[39m[22m[90m (58)[39m
+[41m[1m FAIL [22m[49m tests/unit/federation.rbac.test.ts[2m [ tests/unit/federation.rbac.test.ts ][22m
+== custom unit runner ==
+rc=1
+  const err = new Error(message);
+Error: Cannot find module '@prisma/client-tenant'
+VERIFY-DONE

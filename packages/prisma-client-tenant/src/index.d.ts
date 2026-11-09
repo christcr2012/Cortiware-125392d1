@@ -38941,6 +38941,7 @@ export namespace Prisma {
     updatedAt: number
     billingSettings: number
     tags: number
+    metadata: number
     _all: number
   }
 
@@ -38984,6 +38985,7 @@ export namespace Prisma {
     updatedAt?: true
     billingSettings?: true
     tags?: true
+    metadata?: true
     _all?: true
   }
 
@@ -39072,6 +39074,7 @@ export namespace Prisma {
     updatedAt: Date
     billingSettings: JsonValue
     tags: string[]
+    metadata: JsonValue | null
     _count: CustomerCountAggregateOutputType | null
     _min: CustomerMinAggregateOutputType | null
     _max: CustomerMaxAggregateOutputType | null
@@ -39104,6 +39107,7 @@ export namespace Prisma {
     updatedAt?: boolean
     billingSettings?: boolean
     tags?: boolean
+    metadata?: boolean
     Agreement?: boolean | Customer$AgreementArgs<ExtArgs>
     Org?: boolean | OrgDefaultArgs<ExtArgs>
     CustomerContact?: boolean | Customer$CustomerContactArgs<ExtArgs>
@@ -39130,6 +39134,7 @@ export namespace Prisma {
     updatedAt?: boolean
     billingSettings?: boolean
     tags?: boolean
+    metadata?: boolean
     Org?: boolean | OrgDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["customer"]>
 
@@ -39146,6 +39151,7 @@ export namespace Prisma {
     updatedAt?: boolean
     billingSettings?: boolean
     tags?: boolean
+    metadata?: boolean
     Org?: boolean | OrgDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["customer"]>
 
@@ -39162,9 +39168,10 @@ export namespace Prisma {
     updatedAt?: boolean
     billingSettings?: boolean
     tags?: boolean
+    metadata?: boolean
   }
 
-  export type CustomerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "orgId" | "publicId" | "company" | "primaryName" | "primaryEmail" | "primaryPhone" | "notes" | "createdAt" | "updatedAt" | "billingSettings" | "tags", ExtArgs["result"]["customer"]>
+  export type CustomerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "orgId" | "publicId" | "company" | "primaryName" | "primaryEmail" | "primaryPhone" | "notes" | "createdAt" | "updatedAt" | "billingSettings" | "tags" | "metadata", ExtArgs["result"]["customer"]>
   export type CustomerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Agreement?: boolean | Customer$AgreementArgs<ExtArgs>
     Org?: boolean | OrgDefaultArgs<ExtArgs>
@@ -39212,6 +39219,7 @@ export namespace Prisma {
       updatedAt: Date
       billingSettings: Prisma.JsonValue
       tags: string[]
+      metadata: Prisma.JsonValue | null
     }, ExtArgs["result"]["customer"]>
     composites: {}
   }
@@ -39657,6 +39665,7 @@ export namespace Prisma {
     readonly updatedAt: FieldRef<"Customer", 'DateTime'>
     readonly billingSettings: FieldRef<"Customer", 'Json'>
     readonly tags: FieldRef<"Customer", 'String[]'>
+    readonly metadata: FieldRef<"Customer", 'Json'>
   }
     
 
@@ -59140,6 +59149,7 @@ export namespace Prisma {
     status: number
     convertedToCustomerId: number
     customFields: number
+    metadata: number
     _all: number
   }
 
@@ -59247,6 +59257,7 @@ export namespace Prisma {
     status?: true
     convertedToCustomerId?: true
     customFields?: true
+    metadata?: true
     _all?: true
   }
 
@@ -59369,6 +59380,7 @@ export namespace Prisma {
     status: $Enums.LeadStatus
     convertedToCustomerId: string | null
     customFields: JsonValue
+    metadata: JsonValue | null
     _count: LeadCountAggregateOutputType | null
     _avg: LeadAvgAggregateOutputType | null
     _sum: LeadSumAggregateOutputType | null
@@ -59423,6 +59435,7 @@ export namespace Prisma {
     status?: boolean
     convertedToCustomerId?: boolean
     customFields?: boolean
+    metadata?: boolean
     Org?: boolean | OrgDefaultArgs<ExtArgs>
     LeadInvoiceLine?: boolean | Lead$LeadInvoiceLineArgs<ExtArgs>
     _count?: boolean | LeadCountOutputTypeDefaultArgs<ExtArgs>
@@ -59461,6 +59474,7 @@ export namespace Prisma {
     status?: boolean
     convertedToCustomerId?: boolean
     customFields?: boolean
+    metadata?: boolean
     Org?: boolean | OrgDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["lead"]>
 
@@ -59497,6 +59511,7 @@ export namespace Prisma {
     status?: boolean
     convertedToCustomerId?: boolean
     customFields?: boolean
+    metadata?: boolean
     Org?: boolean | OrgDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["lead"]>
 
@@ -59533,9 +59548,10 @@ export namespace Prisma {
     status?: boolean
     convertedToCustomerId?: boolean
     customFields?: boolean
+    metadata?: boolean
   }
 
-  export type LeadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "orgId" | "publicId" | "sourceType" | "identityHash" | "company" | "contactName" | "email" | "phoneE164" | "website" | "serviceCode" | "zip" | "enrichmentJson" | "aiScore" | "scoreFactors" | "createdAt" | "updatedAt" | "city" | "notes" | "sourceDetail" | "state" | "postalCode" | "address" | "addressLine1" | "addressLine2" | "country" | "convertedAt" | "rfp" | "systemGenerated" | "status" | "convertedToCustomerId" | "customFields", ExtArgs["result"]["lead"]>
+  export type LeadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "orgId" | "publicId" | "sourceType" | "identityHash" | "company" | "contactName" | "email" | "phoneE164" | "website" | "serviceCode" | "zip" | "enrichmentJson" | "aiScore" | "scoreFactors" | "createdAt" | "updatedAt" | "city" | "notes" | "sourceDetail" | "state" | "postalCode" | "address" | "addressLine1" | "addressLine2" | "country" | "convertedAt" | "rfp" | "systemGenerated" | "status" | "convertedToCustomerId" | "customFields" | "metadata", ExtArgs["result"]["lead"]>
   export type LeadInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Org?: boolean | OrgDefaultArgs<ExtArgs>
     LeadInvoiceLine?: boolean | Lead$LeadInvoiceLineArgs<ExtArgs>
@@ -59587,6 +59603,7 @@ export namespace Prisma {
       status: $Enums.LeadStatus
       convertedToCustomerId: string | null
       customFields: Prisma.JsonValue
+      metadata: Prisma.JsonValue | null
     }, ExtArgs["result"]["lead"]>
     composites: {}
   }
@@ -60044,6 +60061,7 @@ export namespace Prisma {
     readonly status: FieldRef<"Lead", 'LeadStatus'>
     readonly convertedToCustomerId: FieldRef<"Lead", 'String'>
     readonly customFields: FieldRef<"Lead", 'Json'>
+    readonly metadata: FieldRef<"Lead", 'Json'>
   }
     
 
@@ -118948,7 +118966,8 @@ export namespace Prisma {
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     billingSettings: 'billingSettings',
-    tags: 'tags'
+    tags: 'tags',
+    metadata: 'metadata'
   };
 
   export type CustomerScalarFieldEnum = (typeof CustomerScalarFieldEnum)[keyof typeof CustomerScalarFieldEnum]
@@ -119263,7 +119282,8 @@ export namespace Prisma {
     systemGenerated: 'systemGenerated',
     status: 'status',
     convertedToCustomerId: 'convertedToCustomerId',
-    customFields: 'customFields'
+    customFields: 'customFields',
+    metadata: 'metadata'
   };
 
   export type LeadScalarFieldEnum = (typeof LeadScalarFieldEnum)[keyof typeof LeadScalarFieldEnum]
@@ -122732,6 +122752,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Customer"> | Date | string
     billingSettings?: JsonFilter<"Customer">
     tags?: StringNullableListFilter<"Customer">
+    metadata?: JsonNullableFilter<"Customer">
     Agreement?: AgreementListRelationFilter
     Org?: XOR<OrgScalarRelationFilter, OrgWhereInput>
     CustomerContact?: CustomerContactListRelationFilter
@@ -122757,6 +122778,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     billingSettings?: SortOrder
     tags?: SortOrder
+    metadata?: SortOrderInput | SortOrder
     Agreement?: AgreementOrderByRelationAggregateInput
     Org?: OrgOrderByWithRelationInput
     CustomerContact?: CustomerContactOrderByRelationAggregateInput
@@ -122785,6 +122807,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Customer"> | Date | string
     billingSettings?: JsonFilter<"Customer">
     tags?: StringNullableListFilter<"Customer">
+    metadata?: JsonNullableFilter<"Customer">
     Agreement?: AgreementListRelationFilter
     Org?: XOR<OrgScalarRelationFilter, OrgWhereInput>
     CustomerContact?: CustomerContactListRelationFilter
@@ -122810,6 +122833,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     billingSettings?: SortOrder
     tags?: SortOrder
+    metadata?: SortOrderInput | SortOrder
     _count?: CustomerCountOrderByAggregateInput
     _max?: CustomerMaxOrderByAggregateInput
     _min?: CustomerMinOrderByAggregateInput
@@ -122831,6 +122855,7 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Customer"> | Date | string
     billingSettings?: JsonWithAggregatesFilter<"Customer">
     tags?: StringNullableListFilter<"Customer">
+    metadata?: JsonNullableWithAggregatesFilter<"Customer">
   }
 
   export type CustomerContactWhereInput = {
@@ -124308,6 +124333,7 @@ export namespace Prisma {
     status?: EnumLeadStatusFilter<"Lead"> | $Enums.LeadStatus
     convertedToCustomerId?: StringNullableFilter<"Lead"> | string | null
     customFields?: JsonFilter<"Lead">
+    metadata?: JsonNullableFilter<"Lead">
     Org?: XOR<OrgScalarRelationFilter, OrgWhereInput>
     LeadInvoiceLine?: LeadInvoiceLineListRelationFilter
   }
@@ -124345,6 +124371,7 @@ export namespace Prisma {
     status?: SortOrder
     convertedToCustomerId?: SortOrderInput | SortOrder
     customFields?: SortOrder
+    metadata?: SortOrderInput | SortOrder
     Org?: OrgOrderByWithRelationInput
     LeadInvoiceLine?: LeadInvoiceLineOrderByRelationAggregateInput
   }
@@ -124385,6 +124412,7 @@ export namespace Prisma {
     status?: EnumLeadStatusFilter<"Lead"> | $Enums.LeadStatus
     convertedToCustomerId?: StringNullableFilter<"Lead"> | string | null
     customFields?: JsonFilter<"Lead">
+    metadata?: JsonNullableFilter<"Lead">
     Org?: XOR<OrgScalarRelationFilter, OrgWhereInput>
     LeadInvoiceLine?: LeadInvoiceLineListRelationFilter
   }, "id" | "publicId">
@@ -124422,6 +124450,7 @@ export namespace Prisma {
     status?: SortOrder
     convertedToCustomerId?: SortOrderInput | SortOrder
     customFields?: SortOrder
+    metadata?: SortOrderInput | SortOrder
     _count?: LeadCountOrderByAggregateInput
     _avg?: LeadAvgOrderByAggregateInput
     _max?: LeadMaxOrderByAggregateInput
@@ -124465,6 +124494,7 @@ export namespace Prisma {
     status?: EnumLeadStatusWithAggregatesFilter<"Lead"> | $Enums.LeadStatus
     convertedToCustomerId?: StringNullableWithAggregatesFilter<"Lead"> | string | null
     customFields?: JsonWithAggregatesFilter<"Lead">
+    metadata?: JsonNullableWithAggregatesFilter<"Lead">
   }
 
   export type LeadInvoiceWhereInput = {
@@ -131554,6 +131584,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementCreateNestedManyWithoutCustomerInput
     Org: OrgCreateNestedOneWithoutCustomerInput
     CustomerContact?: CustomerContactCreateNestedManyWithoutCustomerInput
@@ -131579,6 +131610,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedCreateNestedManyWithoutCustomerInput
     CustomerContact?: CustomerContactUncheckedCreateNestedManyWithoutCustomerInput
     Invoice?: InvoiceUncheckedCreateNestedManyWithoutCustomerInput
@@ -131602,6 +131634,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUpdateManyWithoutCustomerNestedInput
     Org?: OrgUpdateOneRequiredWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUpdateManyWithoutCustomerNestedInput
@@ -131627,6 +131660,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedUpdateManyWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUncheckedUpdateManyWithoutCustomerNestedInput
     Invoice?: InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
@@ -131651,6 +131685,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type CustomerUpdateManyMutationInput = {
@@ -131665,6 +131700,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type CustomerUncheckedUpdateManyInput = {
@@ -131680,6 +131716,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type CustomerContactCreateInput = {
@@ -133334,6 +133371,7 @@ export namespace Prisma {
     status?: $Enums.LeadStatus
     convertedToCustomerId?: string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Org: OrgCreateNestedOneWithoutLeadInput
     LeadInvoiceLine?: LeadInvoiceLineCreateNestedManyWithoutLeadInput
   }
@@ -133371,6 +133409,7 @@ export namespace Prisma {
     status?: $Enums.LeadStatus
     convertedToCustomerId?: string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     LeadInvoiceLine?: LeadInvoiceLineUncheckedCreateNestedManyWithoutLeadInput
   }
 
@@ -133406,6 +133445,7 @@ export namespace Prisma {
     status?: EnumLeadStatusFieldUpdateOperationsInput | $Enums.LeadStatus
     convertedToCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Org?: OrgUpdateOneRequiredWithoutLeadNestedInput
     LeadInvoiceLine?: LeadInvoiceLineUpdateManyWithoutLeadNestedInput
   }
@@ -133443,6 +133483,7 @@ export namespace Prisma {
     status?: EnumLeadStatusFieldUpdateOperationsInput | $Enums.LeadStatus
     convertedToCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     LeadInvoiceLine?: LeadInvoiceLineUncheckedUpdateManyWithoutLeadNestedInput
   }
 
@@ -133479,6 +133520,7 @@ export namespace Prisma {
     status?: $Enums.LeadStatus
     convertedToCustomerId?: string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type LeadUpdateManyMutationInput = {
@@ -133513,6 +133555,7 @@ export namespace Prisma {
     status?: EnumLeadStatusFieldUpdateOperationsInput | $Enums.LeadStatus
     convertedToCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type LeadUncheckedUpdateManyInput = {
@@ -133548,6 +133591,7 @@ export namespace Prisma {
     status?: EnumLeadStatusFieldUpdateOperationsInput | $Enums.LeadStatus
     convertedToCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type LeadInvoiceCreateInput = {
@@ -140566,6 +140610,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     billingSettings?: SortOrder
     tags?: SortOrder
+    metadata?: SortOrder
   }
 
   export type CustomerMaxOrderByAggregateInput = {
@@ -141690,6 +141735,7 @@ export namespace Prisma {
     status?: SortOrder
     convertedToCustomerId?: SortOrder
     customFields?: SortOrder
+    metadata?: SortOrder
   }
 
   export type LeadAvgOrderByAggregateInput = {
@@ -152080,6 +152126,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Org: OrgCreateNestedOneWithoutCustomerInput
     CustomerContact?: CustomerContactCreateNestedManyWithoutCustomerInput
     Invoice?: InvoiceCreateNestedManyWithoutCustomerInput
@@ -152104,6 +152151,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     CustomerContact?: CustomerContactUncheckedCreateNestedManyWithoutCustomerInput
     Invoice?: InvoiceUncheckedCreateNestedManyWithoutCustomerInput
     Job?: JobUncheckedCreateNestedManyWithoutCustomerInput
@@ -152171,6 +152219,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Org?: OrgUpdateOneRequiredWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUpdateManyWithoutCustomerNestedInput
     Invoice?: InvoiceUpdateManyWithoutCustomerNestedInput
@@ -152195,6 +152244,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     CustomerContact?: CustomerContactUncheckedUpdateManyWithoutCustomerNestedInput
     Invoice?: InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
     Job?: JobUncheckedUpdateManyWithoutCustomerNestedInput
@@ -159408,6 +159458,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementCreateNestedManyWithoutCustomerInput
     Org: OrgCreateNestedOneWithoutCustomerInput
     Invoice?: InvoiceCreateNestedManyWithoutCustomerInput
@@ -159432,6 +159483,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedCreateNestedManyWithoutCustomerInput
     Invoice?: InvoiceUncheckedCreateNestedManyWithoutCustomerInput
     Job?: JobUncheckedCreateNestedManyWithoutCustomerInput
@@ -159470,6 +159522,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUpdateManyWithoutCustomerNestedInput
     Org?: OrgUpdateOneRequiredWithoutCustomerNestedInput
     Invoice?: InvoiceUpdateManyWithoutCustomerNestedInput
@@ -159494,6 +159547,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedUpdateManyWithoutCustomerNestedInput
     Invoice?: InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
     Job?: JobUncheckedUpdateManyWithoutCustomerNestedInput
@@ -161570,6 +161624,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementCreateNestedManyWithoutCustomerInput
     Org: OrgCreateNestedOneWithoutCustomerInput
     CustomerContact?: CustomerContactCreateNestedManyWithoutCustomerInput
@@ -161594,6 +161649,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedCreateNestedManyWithoutCustomerInput
     CustomerContact?: CustomerContactUncheckedCreateNestedManyWithoutCustomerInput
     Job?: JobUncheckedCreateNestedManyWithoutCustomerInput
@@ -161907,6 +161963,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUpdateManyWithoutCustomerNestedInput
     Org?: OrgUpdateOneRequiredWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUpdateManyWithoutCustomerNestedInput
@@ -161931,6 +161988,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedUpdateManyWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUncheckedUpdateManyWithoutCustomerNestedInput
     Job?: JobUncheckedUpdateManyWithoutCustomerNestedInput
@@ -162475,6 +162533,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementCreateNestedManyWithoutCustomerInput
     Org: OrgCreateNestedOneWithoutCustomerInput
     CustomerContact?: CustomerContactCreateNestedManyWithoutCustomerInput
@@ -162499,6 +162558,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedCreateNestedManyWithoutCustomerInput
     CustomerContact?: CustomerContactUncheckedCreateNestedManyWithoutCustomerInput
     Invoice?: InvoiceUncheckedCreateNestedManyWithoutCustomerInput
@@ -162911,6 +162971,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUpdateManyWithoutCustomerNestedInput
     Org?: OrgUpdateOneRequiredWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUpdateManyWithoutCustomerNestedInput
@@ -162935,6 +162996,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedUpdateManyWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUncheckedUpdateManyWithoutCustomerNestedInput
     Invoice?: InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
@@ -164400,6 +164462,7 @@ export namespace Prisma {
     status?: $Enums.LeadStatus
     convertedToCustomerId?: string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Org: OrgCreateNestedOneWithoutLeadInput
   }
 
@@ -164436,6 +164499,7 @@ export namespace Prisma {
     status?: $Enums.LeadStatus
     convertedToCustomerId?: string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type LeadCreateOrConnectWithoutLeadInvoiceLineInput = {
@@ -164531,6 +164595,7 @@ export namespace Prisma {
     status?: EnumLeadStatusFieldUpdateOperationsInput | $Enums.LeadStatus
     convertedToCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Org?: OrgUpdateOneRequiredWithoutLeadNestedInput
   }
 
@@ -164567,6 +164632,7 @@ export namespace Prisma {
     status?: EnumLeadStatusFieldUpdateOperationsInput | $Enums.LeadStatus
     convertedToCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type OrgCreateWithoutNotificationInput = {
@@ -165359,6 +165425,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementCreateNestedManyWithoutCustomerInput
     Org: OrgCreateNestedOneWithoutCustomerInput
     CustomerContact?: CustomerContactCreateNestedManyWithoutCustomerInput
@@ -165383,6 +165450,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedCreateNestedManyWithoutCustomerInput
     CustomerContact?: CustomerContactUncheckedCreateNestedManyWithoutCustomerInput
     Invoice?: InvoiceUncheckedCreateNestedManyWithoutCustomerInput
@@ -165592,6 +165660,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUpdateManyWithoutCustomerNestedInput
     Org?: OrgUpdateOneRequiredWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUpdateManyWithoutCustomerNestedInput
@@ -165616,6 +165685,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedUpdateManyWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUncheckedUpdateManyWithoutCustomerNestedInput
     Invoice?: InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
@@ -166443,6 +166513,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementCreateNestedManyWithoutCustomerInput
     CustomerContact?: CustomerContactCreateNestedManyWithoutCustomerInput
     Invoice?: InvoiceCreateNestedManyWithoutCustomerInput
@@ -166466,6 +166537,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedCreateNestedManyWithoutCustomerInput
     CustomerContact?: CustomerContactUncheckedCreateNestedManyWithoutCustomerInput
     Invoice?: InvoiceUncheckedCreateNestedManyWithoutCustomerInput
@@ -166819,6 +166891,7 @@ export namespace Prisma {
     status?: $Enums.LeadStatus
     convertedToCustomerId?: string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     LeadInvoiceLine?: LeadInvoiceLineCreateNestedManyWithoutLeadInput
   }
 
@@ -166854,6 +166927,7 @@ export namespace Prisma {
     status?: $Enums.LeadStatus
     convertedToCustomerId?: string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     LeadInvoiceLine?: LeadInvoiceLineUncheckedCreateNestedManyWithoutLeadInput
   }
 
@@ -168344,6 +168418,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Customer"> | Date | string
     billingSettings?: JsonFilter<"Customer">
     tags?: StringNullableListFilter<"Customer">
+    metadata?: JsonNullableFilter<"Customer">
   }
 
   export type EmailTemplateUpsertWithWhereUniqueWithoutOrgInput = {
@@ -168548,6 +168623,7 @@ export namespace Prisma {
     status?: EnumLeadStatusFilter<"Lead"> | $Enums.LeadStatus
     convertedToCustomerId?: StringNullableFilter<"Lead"> | string | null
     customFields?: JsonFilter<"Lead">
+    metadata?: JsonNullableFilter<"Lead">
   }
 
   export type LeadInvoiceUpsertWithWhereUniqueWithoutOrgInput = {
@@ -171685,6 +171761,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementCreateNestedManyWithoutCustomerInput
     Org: OrgCreateNestedOneWithoutCustomerInput
     CustomerContact?: CustomerContactCreateNestedManyWithoutCustomerInput
@@ -171709,6 +171786,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedCreateNestedManyWithoutCustomerInput
     CustomerContact?: CustomerContactUncheckedCreateNestedManyWithoutCustomerInput
     Invoice?: InvoiceUncheckedCreateNestedManyWithoutCustomerInput
@@ -171918,6 +171996,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUpdateManyWithoutCustomerNestedInput
     Org?: OrgUpdateOneRequiredWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUpdateManyWithoutCustomerNestedInput
@@ -171942,6 +172021,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedUpdateManyWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUncheckedUpdateManyWithoutCustomerNestedInput
     Invoice?: InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
@@ -176625,6 +176705,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementCreateNestedManyWithoutCustomerInput
     Org: OrgCreateNestedOneWithoutCustomerInput
     CustomerContact?: CustomerContactCreateNestedManyWithoutCustomerInput
@@ -176649,6 +176730,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedCreateNestedManyWithoutCustomerInput
     CustomerContact?: CustomerContactUncheckedCreateNestedManyWithoutCustomerInput
     Invoice?: InvoiceUncheckedCreateNestedManyWithoutCustomerInput
@@ -176972,6 +177054,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUpdateManyWithoutCustomerNestedInput
     Org?: OrgUpdateOneRequiredWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUpdateManyWithoutCustomerNestedInput
@@ -176996,6 +177079,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedUpdateManyWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUncheckedUpdateManyWithoutCustomerNestedInput
     Invoice?: InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
@@ -177310,6 +177394,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementCreateNestedManyWithoutCustomerInput
     Org: OrgCreateNestedOneWithoutCustomerInput
     CustomerContact?: CustomerContactCreateNestedManyWithoutCustomerInput
@@ -177334,6 +177419,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedCreateNestedManyWithoutCustomerInput
     CustomerContact?: CustomerContactUncheckedCreateNestedManyWithoutCustomerInput
     Invoice?: InvoiceUncheckedCreateNestedManyWithoutCustomerInput
@@ -177565,6 +177651,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUpdateManyWithoutCustomerNestedInput
     Org?: OrgUpdateOneRequiredWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUpdateManyWithoutCustomerNestedInput
@@ -177589,6 +177676,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedUpdateManyWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUncheckedUpdateManyWithoutCustomerNestedInput
     Invoice?: InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
@@ -179720,6 +179808,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementCreateNestedManyWithoutCustomerInput
     Org: OrgCreateNestedOneWithoutCustomerInput
     CustomerContact?: CustomerContactCreateNestedManyWithoutCustomerInput
@@ -179744,6 +179833,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedCreateNestedManyWithoutCustomerInput
     CustomerContact?: CustomerContactUncheckedCreateNestedManyWithoutCustomerInput
     Invoice?: InvoiceUncheckedCreateNestedManyWithoutCustomerInput
@@ -179959,6 +180049,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUpdateManyWithoutCustomerNestedInput
     Org?: OrgUpdateOneRequiredWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUpdateManyWithoutCustomerNestedInput
@@ -179983,6 +180074,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedUpdateManyWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUncheckedUpdateManyWithoutCustomerNestedInput
     Invoice?: InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
@@ -182489,6 +182581,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerCreatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type EmailTemplateCreateManyOrgInput = {
@@ -182634,6 +182727,7 @@ export namespace Prisma {
     status?: $Enums.LeadStatus
     convertedToCustomerId?: string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type LeadInvoiceCreateManyOrgInput = {
@@ -183657,6 +183751,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUpdateManyWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUpdateManyWithoutCustomerNestedInput
     Invoice?: InvoiceUpdateManyWithoutCustomerNestedInput
@@ -183680,6 +183775,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     Agreement?: AgreementUncheckedUpdateManyWithoutCustomerNestedInput
     CustomerContact?: CustomerContactUncheckedUpdateManyWithoutCustomerNestedInput
     Invoice?: InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
@@ -183703,6 +183799,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingSettings?: JsonNullValueInput | InputJsonValue
     tags?: CustomerUpdatetagsInput | string[]
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type EmailTemplateUpdateWithoutOrgInput = {
@@ -184088,6 +184185,7 @@ export namespace Prisma {
     status?: EnumLeadStatusFieldUpdateOperationsInput | $Enums.LeadStatus
     convertedToCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     LeadInvoiceLine?: LeadInvoiceLineUpdateManyWithoutLeadNestedInput
   }
 
@@ -184123,6 +184221,7 @@ export namespace Prisma {
     status?: EnumLeadStatusFieldUpdateOperationsInput | $Enums.LeadStatus
     convertedToCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
     LeadInvoiceLine?: LeadInvoiceLineUncheckedUpdateManyWithoutLeadNestedInput
   }
 
@@ -184158,6 +184257,7 @@ export namespace Prisma {
     status?: EnumLeadStatusFieldUpdateOperationsInput | $Enums.LeadStatus
     convertedToCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     customFields?: JsonNullValueInput | InputJsonValue
+    metadata?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type LeadInvoiceUpdateWithoutOrgInput = {

@@ -1,5 +1,5 @@
 {
-  "name": "@prisma/prisma-client-tenant",
+  "name": "@prisma/client-tenant",
   "version": "0.0.0",
   "private": true,
   "description": "Generated Prisma client (tenant schema) - generated into src/ by prisma generate; do not edit src/ by hand.",

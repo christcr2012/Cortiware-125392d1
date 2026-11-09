@@ -487,7 +487,8 @@ exports.Prisma.CustomerScalarFieldEnum = {
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   billingSettings: 'billingSettings',
-  tags: 'tags'
+  tags: 'tags',
+  metadata: 'metadata'
 };
 
 exports.Prisma.CustomerContactScalarFieldEnum = {
@@ -751,7 +752,8 @@ exports.Prisma.LeadScalarFieldEnum = {
   systemGenerated: 'systemGenerated',
   status: 'status',
   convertedToCustomerId: 'convertedToCustomerId',
-  customFields: 'customFields'
+  customFields: 'customFields',
+  metadata: 'metadata'
 };
 
 exports.Prisma.LeadInvoiceScalarFieldEnum = {
